@@ -28,7 +28,7 @@ text=""
 positive=("bada bing, bada boom.")
 negative=(" fangul!"," marrone!")
 
-p="piss the shit the fuck dude man the thong theo reeetheos bad bad bad reee damn dammit damnit THE MONEY"
+p=""
 
 with open("posts.txt") as file:
     posts=file.read().splitlines()
