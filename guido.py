@@ -79,7 +79,7 @@ class guidobot:
 		for n, i in enumerate(a):
 			if i in ("man","dude","guy","comrade","person","fellow","fella","friend","countryman","classmate","brother"):
 				a[n]="paisan"
-			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers"):
+			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers","folks","folx","folk"):
 				a[n]="paisanos"
 			elif i in ("meat","pork","salami","pepperoni","sausage","idiot","loser","retard","fool","moron","dunce","redditor"):
 				a[n]="gabbagool"
@@ -103,6 +103,10 @@ class guidobot:
 				a[n]="pizzolino"
 			elif i in ("naps"):
 				a[n]="pizzolinos"
+			elif i in ("dog","woofer","canine","wolf","fox","puppy","puppie","pup"):
+				a[n]="dago"
+			elif i in ("dogs","woofers","canines","wolves","foxes","puppies","pups"):
+				a[n]="dagos"
 			elif i =="the":
 				c=("de","de","da")
 				a[n] = c[randint(0,2)]
@@ -144,4 +148,3 @@ class guidobot:
 
 guido_bot = guidobot(time.time())
 guido_bot.run()
-
