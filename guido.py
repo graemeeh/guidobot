@@ -26,7 +26,7 @@ train_set = negative_features + positive_features + neutral_features
  
 classifier = NaiveBayesClassifier.train(train_set) 
 
-positive=(" bada bing.")
+positive=(" bada bing."," kisses fingatips.", "fuhgettaboutit")
 negative=(" fangul!"," marrone!")
 
 
@@ -63,9 +63,9 @@ class guidobot:
 					count=count-1
 				if classResult == 'pos':
 					count=count+1
-			if count>1:
+			if count>0:
 				c=positive[randint(0,len(positive)-1)]
-			elif count<-1:
+			elif count<0:
 				c=negative[randint(0,len(negative)-1)]
 			else:
 				c=""
@@ -77,27 +77,35 @@ class guidobot:
 		f=f.lower()
 		a=word_tokenize(f)
 		for n, i in enumerate(a):
-			if i in ("man","dude","guy","comrade","person","fellow","fella","friend","countryman","classmate","brother"):
+			if i in ("man","dude","guy","comrade","person","fellow","fella","friend","countryman","classmate","brother","user"):
 				a[n]="paisan"
-			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers","folks","folx","folk"):
+			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers","folks","folx","folk","users"):
 				a[n]="paisanos"
-			elif i in ("meat","pork","salami","pepperoni","sausage","idiot","loser","retard","fool","moron","dunce","redditor"):
+			elif i in ("bud","buddy"):
+				a[n]="pal"
+			elif i in ("meat","pork","salami","pepperoni","sausage","idiot","loser","retard","fool","moron","dunce","redditor","buffoon"):
 				a[n]="gabbagool"
-			elif i in ("meats","porks","salamis","pepperonis","sausages","idiots","losers","retards","fools","morons","dunces","redditors"):
+			elif i in ("meats","porks","salamis","pepperonis","sausages","idiots","losers","retards","fools","morons","dunces","redditors","buffoons"):
 				a[n]="gabbagools"
 			elif i in ("dick","cock","penis","johnson","schlong","shvantz","weewee","peepee","phallus"):
 				a[n]="stugots"
 			elif i in ("dicks","cocks","penises","johnsons","schlongs","shvantzes","weewees","peepees","phalluses"):
 				a[n]="stugotses"
+			elif i in ("italian"):
+				a[n]="italiano"
+			elif i in ("italians"):
+				a[n]="italianos"
 			elif i in ("balls","testicles","ballsack","nuts"):
 				a[n]="maroni"
 			elif i in ("woman","girl","chick","female","wife"):
 				a[n]="broad"
 			elif i in ("women","girls","chicks","females","wives"):
 				a[n]="broads"
-			elif i in ("ususrer","loaner","landlord","boss"):
+			elif i in ("grandma","grandmother","nana","gramma"):
+				a[n]="nona"
+			elif i in ("ususrer","loaner","landlord","boss","cheater"):
 				a[n]="strozzino"
-			elif i in ("ususrers","loaners","landlords","bosses"):
+			elif i in ("ususrers","loaners","landlords","bosses","cheaters):
 				a[n]="strozzinos"
 			elif i in ("nap","rest","sleep"):
 				a[n]="pizzolino"
@@ -112,8 +120,20 @@ class guidobot:
 				a[n] = c[randint(0,2)]
 			elif i=="for":
 				a[n]="fuh"
+			elif i=="broken":
+				a[n]="rotto"
+			elif i=="business":
+				a[n]="bidness"
+			elif i=="businesses":
+				a[n]="bidneses"
+			elif i=="matter":
+				a[n]="matta"
+			elif i=="matters":
+				a[n]="mattas"
 			elif i=="this":
 				a[n]="dis"
+			elif i=="family":
+				a[n]="famiglia"
 			elif i=="these":
 				a[n]="dese"
 			elif i=="that":
@@ -123,7 +143,7 @@ class guidobot:
 			elif i=="over":
 				c=("ovuh","ova")
 				a[n] = c[randint(0,1)]
-			elif i=="here":
+			elif i in ("here","hear"):
 				a[n]="hea"
 			elif i =="with":
 				a[n]="wit"
