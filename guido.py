@@ -15,7 +15,7 @@ def word_feats(words):
     return dict([(word, True) for word in words])
  
 positive_vocab = [ 'awesome', 'outstanding', 'fantastic', 'terrific', 'wonderful' 'good', 'nice', 'great', ':)','love','bless','like','hot']
-negative_vocab = [ 'bad', 'terrible','useless', 'hate', ':(' ,'shit','ugly','awful','disgusting','damn']
+negative_vocab = [ 'bad', 'terrible','useless', 'hate', ':(' ,'shit','ugly','awful','disgusting','damn','trash','garbage','fuck']
 neutral_vocab = [ 'reddit','the','sound','was','name','is','hey','did','know','words','not','hi','these','those','there','dog']
  
 positive_features = [(word_feats(pos), 'pos') for pos in positive_vocab]
