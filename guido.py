@@ -26,8 +26,8 @@ train_set = negative_features + positive_features + neutral_features
  
 classifier = NaiveBayesClassifier.train(train_set) 
 
-positive=(" bada bing."," kisses fingatips.", "fuhgettaboutit")
-negative=(" fangul!"," marrone!")
+positive=(" bada bing."," *kisses fingatips.*", " bellisimo!")
+negative=(" fangul!"," marrone!"," fuhgettaboutit.")
 
 
 class guidobot:
@@ -49,6 +49,7 @@ class guidobot:
 				guidoifiedtext="fangul! theres nothing hea fuh me."
 			mention.reply(guidoifiedtext)
 			self.reddit.inbox.mark_read([mention])
+			print("replied to", mention.id)
 
 	def endsentence(self, f):
 		f=f.lower()
@@ -77,15 +78,15 @@ class guidobot:
 		f=f.lower()
 		a=word_tokenize(f)
 		for n, i in enumerate(a):
-			if i in ("man","dude","guy","comrade","person","fellow","fella","friend","countryman","classmate","brother","user"):
+			if i in ("man","dude","guy","comrade","person","fellow","fella","friend","countryman","classmate","brother","user","homie","bro"):
 				a[n]="paisan"
-			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers","folks","folx","folk","users"):
+			elif i in ("men","dudes","guys","comrades","persons","fellows","fellas","friends","countrymen","classmates","brothers","folks","folx","folk","users","homies","bros"):
 				a[n]="paisanos"
 			elif i in ("bud","buddy"):
 				a[n]="pal"
-			elif i in ("meat","pork","salami","pepperoni","sausage","idiot","loser","retard","fool","moron","dunce","redditor","buffoon"):
+			elif i in ("meat","pork","salami","pepperoni","sausage","ham","idiot","loser","retard","fool","moron","dunce","redditor","buffoon"):
 				a[n]="gabbagool"
-			elif i in ("meats","porks","salamis","pepperonis","sausages","idiots","losers","retards","fools","morons","dunces","redditors","buffoons"):
+			elif i in ("meats","porks","salamis","pepperonis","sausages","hams","idiots","losers","retards","fools","morons","dunces","redditors","buffoons"):
 				a[n]="gabbagools"
 			elif i in ("dick","cock","penis","johnson","schlong","shvantz","weewee","peepee","phallus"):
 				a[n]="stugots"
@@ -105,7 +106,7 @@ class guidobot:
 				a[n]="nona"
 			elif i in ("ususrer","loaner","landlord","boss","cheater"):
 				a[n]="strozzino"
-			elif i in ("ususrers","loaners","landlords","bosses","cheaters):
+			elif i in ("ususrers","loaners","landlords","bosses","cheaters"):
 				a[n]="strozzinos"
 			elif i in ("nap","rest","sleep"):
 				a[n]="pizzolino"
@@ -134,6 +135,8 @@ class guidobot:
 				a[n]="dis"
 			elif i=="family":
 				a[n]="famiglia"
+			elif i=="families":
+				a[n]="famiglias"
 			elif i=="these":
 				a[n]="dese"
 			elif i=="that":
@@ -156,8 +159,8 @@ class guidobot:
 		while True:
 			#if 60 seconds has elapsed since last Looking for comments print
 			if time.time() - self.last_time >= 60:
-				print("Looking for comments...")
 				self.last_time = time.time()
+				#print was spamming terminal
 
 			#find and reply to relevant comments
 			self.replycomment()
